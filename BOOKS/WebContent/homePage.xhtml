@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>BOOKS MANAGER</title>
+  <h:outputStylesheet library="css" name="HomePage.css" />
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>   
+</h:head>
+<h:body>
+  <h:form>
+    <p:panel header="BOOKS MANAGER" styleClass="buttonPanel" columnClasses="middle">
+      <h:panelGrid styleClass="buttonPanel" columnClasses="middle" columns="4" cellpadding="4">
+        <p:commandButton value="Books List" action="booksList.xhtml?faces-redirect=true"/>
+      </h:panelGrid>
+    </p:panel>
+  </h:form>
+</h:body>
+</html>

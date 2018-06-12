@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <title>Add Book</title>
+    <style type="text/css">
+        .btnWidth {
+            width: 80px;
+        }     
+    </style>
+</h:head>
+<h:body>
+    <h:form id="createBookForm" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h2>Adding new book to the list</h2>
+            </div>
+        </div>
+        <hr/>  
+        <div class="form-group">
+            <h:outputLabel for="title" class="control-label col-sm-4">Title:</h:outputLabel>
+            <div class="col-sm-4">         
+                <h:inputText id="title-id" value="#{booksBean.title}" class="form-control">
+
+                </h:inputText>
+            </div>
+        </div>
+         <div class="form-group">
+            <h:outputLabel for="genre" class="control-label col-sm-4">Genre:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="genre-id" value="#{booksBean.genre}" class="form-control">
+                </h:inputText>
+            </div>
+        </div>
+         <div class="form-group">
+            <h:outputLabel for="author" class="control-label col-sm-4">Author:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="author-id" value="#{booksBean.author}" class="form-control">
+                </h:inputText>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="pages" class="control-label col-sm-4">Pages:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="pages-id" value="#{booksBean.pages}" class="form-control" >
+                  
+                </h:inputText>
+            </div>
+        </div>
+         <div class="form-group">
+            <h:outputLabel for="release" class="control-label col-sm-4">Release Date</h:outputLabel>
+            <div class="col-sm-4">
+            	<p:inputMask id="release-id" value="#{booksBean.release}" mask="9999/99/99" class="form-control"/>
+            </div>
+        </div>
+    <div class="form-group">
+            <h:outputLabel for="rating1" class="control-label col-sm-4">Rating:</h:outputLabel>
+            <div class="col-sm-4">
+				<p:rating value="#{booksBean.rating1}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="col-sm-2">
+                    <p:commandButton value="Save" action="#{booksBean.saveBooksDetails(booksBean)}" class="btnWidth"/> 
+                </div>
+                <div class="col-sm-1">
+                </div>
+                   <div class="col-sm-2">
+                    <p:commandButton value="Back" action="booksList.xhtml?faces-redirect=true" class="btnSpace"/>
+            	</div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>

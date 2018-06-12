@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+<h:outputStylesheet library="css" name="HomePage.css"/>
+<h:outputStylesheet library="css" name="bootstrap.min.css"/>      
+    <title>Books List</title>
+    <style type="text/css">
+        .tableUpdated {
+        	width: 90% !important;
+        	margin: 17px 58px 0 !important;
+        }
+        .btnSpace {
+        	margin: 17px;
+        }     
+    </style>
+</h:head>
+<h:body>
+	<h:form id="courseForm" class="form-horizontal">
+	<div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+             <h2>Books List</h2> 
+            </div>
+        </div>
+        <hr/>
+    <center>
+        <p:dataTable value="#{booksBean.booksList()}" id="booksTable" var="book" binding="#{table}" resizableColumns="true" tableStyle="width:auto">
+            <p:column headerText="ID" >
+            	<h:outputText value="#{book.id}" />
+            </p:column>
+            <p:column headerText="Book Title">
+                <h:outputText value="#{book.title}" />
+            </p:column>
+            <p:column headerText="Genre">
+                <h:outputText value="#{book.genre}" />
+            </p:column>
+            <p:column headerText="Author">
+                <h:outputText value="#{book.author}" />
+            </p:column>
+             <p:column headerText="Pages">
+                <h:outputText value="#{book.pages}" />
+            </p:column>
+             <p:column headerText="Release Date">
+                <h:outputText value="#{book.release}" />
+            </p:column>
+             <p:column headerText="Rating">
+                <p:rating value="#{book.rating1}" readonly="true" />
+            </p:column>
+         
+            <p:column>
+                <p:commandButton action="#{booksBean.editBooksRecord(book.id)}" icon="fa fa-fw fa-edit"/>
+            </p:column>
+            <p:column>
+                <p:commandButton action="#{booksBean.deleteBooksRecord(book.id)}" icon="fa fa-fw fa-remove"/>
+            </p:column>
+        </p:dataTable>
+       </center>
+        	<center>
+            	<p:commandButton value="Add Book" action="addBook.xhtml?faces-redirect=true" class= "btnSpace" />
+        	</center>
+        	<center>
+            	<p:commandButton value="Back to Home" action="homePage.xhtml?faces-redirect=true"/>
+        	</center>
+        	</h:form>
+</h:body>
+</html>
