@@ -45,7 +45,7 @@ public class DatabaseOperationBean {
 				stuObj.setAuthor(resultSetObj.getString("book_author"));
 				stuObj.setPages(resultSetObj.getString("book_pages"));
 				stuObj.setRelease(resultSetObj.getString("book_release_date"));
-				stuObj.setRating1(resultSetObj.getInt("book_rating1")); 
+				stuObj.setRating1(resultSetObj.getInt("book_rating")); 
 				  
 				booksList.add(stuObj);  
 			}   
