@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import it.ttf.jsf.beans.BooksBean;
 
+
 public class DatabaseOperationBean {
 	
 	public static Statement stmtObj;
@@ -140,6 +141,39 @@ public class DatabaseOperationBean {
 			sqlException.printStackTrace();
 		}
 		return "booksList" + "?faces-redirect=true";
+	}
+	public static String getMoreBooksInDB(int bookId) {
+		BooksBean getBooks = null;
+		System.out.println("getBookStatusInDB() : book Id: " + bookId);
+
+
+		Map<String,Object> sessionMapObj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+
+		try {
+			stmtObj = getConnection().createStatement();    
+			resultSetObj = stmtObj.executeQuery("select * from books.books where book_id =  "+ bookId);
+				
+			
+			ArrayList booksList = new ArrayList();
+			
+			while(resultSetObj.next()) {  
+				BooksBean stuObj = new BooksBean();
+				
+				stuObj.setId(resultSetObj.getInt("book_id"));  
+				stuObj.setTitle(resultSetObj.getString("book_title"));
+				stuObj.setGenre(resultSetObj.getString("book_genre"));
+				stuObj.setAuthor(resultSetObj.getString("book_author"));
+				stuObj.setPages(resultSetObj.getString("book_pages"));
+				stuObj.setRelease(resultSetObj.getString("book_release_date"));
+				stuObj.setRating1(resultSetObj.getInt("book_rating")); 				
+				booksList.add(stuObj);  
+			}   
+			sessionMapObj.put("exams", booksList);
+			
+		} catch(Exception sqlException) {
+			sqlException.printStackTrace();
+		}
+		return "";
 	}
 }
 

@@ -28,14 +28,38 @@
 					</f:facet>
 					<h:outputText value="#{book.title}" />
 					<p:rating value="#{book.rating1}" readonly="true" />
-
+					<h:outputText value="#{book.id}" />
 					
 						<p:commandButton
-							icon="ui-icon-search">						
-						</p:commandButton>
+							id="bookButtonView"
+								actionListener="#{booksBean.editBooksRecord(book.id)}"
+								icon="ui-icon-search"
+								oncomplete="PF('dlg3').show()"
+								update=":BooksRecordListForm:statusBooks" />										
 					
 				</p:panelGrid>
+				
 			</p:carousel>
+			
+			<p:dialog header="#{editRecordObj.title}" widgetVar="dlg3" modal="true" showEffect="fade" hideEffect="fade" appendTo="@(body)" resizable="false" id="statusBooks" responsive="true">
+    <p:outputPanel id="bookDetail" style="text-align:center;">
+            <p:panelGrid columns="2" columnClasses="value,value">
+            <f:facet name="header">
+                    
+              
+				<h:graphicImage value="/resources/images/books/#{editRecordObj.title}-max.jpg" />
+				  </f:facet>
+            	<h:outputText value="#{editRecordObj.id}" />      
+                <h:outputText value="#{editRecordObj.genre}" />
+                <h:outputText value="#{editRecordObj.author}" />
+                <h:outputText value="#{editRecordObj.pages}" />
+                <h:outputText value="#{editRecordObj.release}" />
+                <p:rating value="#{editRecordObj.rating1}" readonly="true" />
+
+          
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
 		</h:form>
 
 	</ui:define>

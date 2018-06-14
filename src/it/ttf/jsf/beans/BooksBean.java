@@ -13,6 +13,7 @@ import org.primefaces.event.RateEvent;
 import it.ttf.db.operation.DatabaseOperationBean;
 
 
+
 @ManagedBean
 @RequestScoped
 
@@ -101,6 +102,8 @@ public class BooksBean {
 	public String deleteBooksRecord(int bookId) {
 		return DatabaseOperationBean.deleteBooksRecordInDB(bookId);
 	}
-
+	public String getMoreBooksInDB(int bookId) {
+		return DatabaseOperationBean.getMoreBooksInDB(bookId);
+	}
     
 }
