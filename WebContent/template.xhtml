@@ -5,29 +5,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
-        <title><ui:insert name="title">TTF WEB APPLICATION</ui:insert></title>
- 
-        <style>
+ <h:head>
+  <title><ui:insert name="title">TTF WEB APPLICATION</ui:insert></title>
+    <style>
         .ui-widget, .ui-widget{
         font-size: 12px;
         }
         .ui-layout-unit{
-        border:none;
+/*       	border:none; */
         }
-       
-        </style>
-    </h:head>
-
-    <h:body>
-
-        <p:growl id="growl" life="3000" sticky="true" showDetail="true"/>
-
-       <p:layout fullPage="true">            
-       <p:layoutUnit position="north" size="110" closable="true" collapsible="true">
-               <center>     <h:graphicImage value="/resources/images/logo.jpg" width="290" height="90"/> </center>
-                </p:layoutUnit>
-            <p:layoutUnit position="west" size="250" header="BOOKS" collapsible="true">
+              
+  </style>
+</h:head>
+ <h:body>
+   <p:growl id="growl" life="3000" sticky="true" showDetail="true"/>
+     <p:layout fullPage="true">            
+       <p:layoutUnit position="north" size="80" closable="true" collapsible="true">
+       	<h:graphicImage value="/resources/images/logo.jpg"/>
+			<h:outputText value="Welcome #{loginBean.uname}"/>
+		</p:layoutUnit>
+            <p:layoutUnit position="west" size="200" header="BOOKS" collapsible="true">
                 <h:form id="menuForm">
                     <p:menu>
                         <p:submenu label="Lista Funzioni">
@@ -36,13 +33,9 @@
                     </p:menu>
                 </h:form>
             </p:layoutUnit>
-
             <p:layoutUnit position="center">
                 <ui:insert name="body"/>
-            </p:layoutUnit>
-
-        </p:layout>
-
-    </h:body>
-
+      </p:layoutUnit>
+    </p:layout>
+ </h:body>
 </html>

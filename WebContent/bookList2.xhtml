@@ -16,7 +16,7 @@
 	<ui:define name="body">
 
 		<h:form id="BooksRecordListForm">
-
+		
 			<p:carousel value="#{booksBean.booksList()}"
 				headerText="I Più Popolari" var="book" itemStyle="text-align:center"
 				responsive="true" numVisible="4">
@@ -41,7 +41,7 @@
 				
 			</p:carousel>
 			
-			<p:dialog header="#{editRecordObj.title}" widgetVar="dlg3" modal="true" showEffect="fade" hideEffect="fade" appendTo="@(body)" resizable="false" id="statusBooks" position="top center">
+			<p:dialog header="#{editRecordObj.title}" widgetVar="dlg3" modal="true" showEffect="fade" hideEffect="fade" appendTo="@(body)" resizable="false" id="statusBooks" position="center top">
     <p:outputPanel id="bookDetail" style="text-align:center">
             <p:panelGrid columns="2" columnClasses="value,value">
             <f:facet name="header">
